@@ -11,5 +11,7 @@ module.exports = {
       'md': '824px',
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ],
 }

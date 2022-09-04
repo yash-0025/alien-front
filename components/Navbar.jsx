@@ -7,11 +7,11 @@ import Image from "next/image";
 function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
-		<div className="bg-black">
-			<nav className=" shadow-sm fixed w-full z-10">
+		<div>
+			<nav className="shadow-sm w-full z-10">
 				<div className="w-full">
 					<div className="flex items-center h-20 w-full">
-						<div className="flex items-center  mx-20  justify-between w-full">
+						<div className="flex items-center  mx-10  justify-between w-full">
 							<div className="flex justify-center items-center flex-shrink-0 ">
 								<h1 className=" font-bold text-xl cursor-pointer">
 									Aliens On Earth
@@ -132,7 +132,7 @@ function Navbar() {
 					leaveTo="opacity-0 scale-95"
 				>
 					{(ref) => (
-						<div className="md:hidden mx-14" id="mobile-menu">
+						<div className="md:hidden mx-6" id="mobile-menu">
 							<div
 								ref={ref}
 								className="bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3"
