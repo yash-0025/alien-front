@@ -1,39 +1,211 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+import React, { useState } from "react"
+import { Transition } from "@headlessui/react"
+import { Link } from "react-scroll"
+import { useRouter } from "next/router"
+// import Image from "next/image"
 
-const Navbar = () => {
+function Navbar() {
+  const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
+  const buttonHandler = () => {
+    router.push("/Mint")
+  }
   return (
-    <div>
-    <div>
-      <Link href="/">
-        <h1>AliensOnEarth</h1>
-      </Link>
-      <ul>
-        <li>
-          {" "}
-          <Link href="/">Team</Link>
-        </li>
-        <li>
-          {" "}
-          <Link href="/">OurStory</Link>
-        </li>
-        <li>
-          {" "}
-          <Link href="/">FAQ's</Link>
-        </li>
-        <li>
-          {" "}
-          <Link href="/">RoadMap</Link>
-        </li>
-      </ul>
-      <Image src="" alt="twitter-logo" width={100} height={100}></Image>
-      <Image src="" alt="instagram logo" width={100} height={100}></Image>
-      <button className="bg-[#FFB800] rounded-lg h-[35px] w-[85px]">
-        Mint Now
-      </button>
+    <div className="text-white ">
+      <nav className="shadow-sm w-full z-10 ">
+        <div className="w-full ">
+          <div className="flex items-center h-20 w-full md:bg-[#393939] bg-opacity-50 ">
+            <div className="flex items-center  mx-10  justify-between w-full md:bg-[#393939] bg-opacity-50">
+              <div className="flex justify-center items-center flex-shrink-0 md:bg-[#393939] bg-opacity-50">
+                <Link href="/">
+                  <h1 className=" font-bold text-xl cursor-pointer md:bg-[#393939] bg-opacity-50">
+                    Aliens On Earth
+                  </h1>
+                </Link>
+              </div>
+              <div className="hidden md:block md:bg-[#393939] ">
+                <div className="ml-10 flex items-baseline space-x-4  md:bg-[#393939]">
+                  <Link
+                    href="team"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                    className="cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]"
+                  >
+                    Team
+                  </Link>
+                  <Link
+                    href="/ourstory"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                    className="cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]"
+                  >
+                    Our Story
+                  </Link>
+                  <Link
+                    href="/faqs"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                    className="cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]"
+                  >
+                    FAQs
+                  </Link>
+
+                  <Link
+                    href="/roadmap"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                    className="cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]"
+                  >
+                    Roadmap
+                  </Link>
+
+                  {/* <Link
+                    activeClass="contact"
+                    to="contact"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                    className="cursor-pointer text-black px-3 py-2 rounded-md text-md font-medium"
+                  >
+                    Mint now
+                  </Link> */}
+
+                  <button
+                    onClick={buttonHandler}
+                    className=" cursor-pointer px-3 py-2 text-md text-black bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 md:bg-[#393939]"
+                  >
+                    Mint Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="mr-10 flex md:hidden ">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                type="button"
+                className="inline-flex items-center justify-center p-2 rounded-md text-white   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <span className="sr-only">Open main menu</span>
+                {!isOpen ? (
+                  <svg
+                    className="block h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    className="block h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <Transition
+          show={isOpen}
+          enter="transition ease-out duration-100 transform"
+          enterFrom="opacity-0 scale-95"
+          enterTo="opacity-100 scale-100"
+          leave="transition ease-in duration-75 transform"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-95"
+        >
+          {(ref) => (
+            <div className="md:hidden mx-6" id="mobile-menu">
+              <div
+                ref={ref}
+                className=" px-2 pt-2 pb-3 space-y-1 sm:px-3 border rounded-2xl"
+              >
+                <Link
+                  href="Team"
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                  className="cursor-pointer hover:bg-[#FFB800] hover:text-black block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Team
+                </Link>
+                <Link
+                  href="/ourstory"
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                  className="cursor-pointer hover:bg-[#FFB800]  hover:text-black block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Our Story
+                </Link>
+
+                <Link
+                  href="/faqs"
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                  className="cursor-pointer hover:bg-[#FFB800]  hover:text-black block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  FAQs
+                </Link>
+                <Link
+                  href="/roadmap"
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                  className="cursor-pointer hover:bg-[#FFB800]  hover:text-black block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Roadmap
+                </Link>
+
+                {/*  <Link
+                  href="/contact"
+                  activeClass="work"
+                  to="work"
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                  className="cursor-pointer hover:bg-[#FFB800]  hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Mint now
+                </Link> */}
+                <button
+                  onClick={buttonHandler}
+                  className="cursor-pointer bg-gradient-to-r from-[#FD7900] to-[#FFE600] block px-3 py-2 rounded-md text-md  font-bold w-3/4 mx-auto hover:scale-110 hover:text-black"
+                >
+                  Mint Now
+                </button>
+              </div>
+            </div>
+          )}
+        </Transition>
+      </nav>
     </div>
-  </div>
   )
 }
 
