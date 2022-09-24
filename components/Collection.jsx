@@ -12,7 +12,7 @@ const Collection = () => {
         <CollectionCard />
         <CollectionCard />
       </div>
-      <div className="space-y-5 mt-5  ">
+      <div className="space-y-5 mt-5 flex flex-col items-center">
         <p className="text-white text-3xl text-center mt-5">
           Get your Alien NFt's now !!
         </p>

@@ -1,6 +1,15 @@
 import React from "react"
+import {address} from "../constansts/index"
+import { ethers } from "ethers";
+import {useContext,useEffect} from "react"
+import { stateContext } from "../components/Layout";
 
 const Mint = () => {
+  const {connectWallet, connected,mintPage,setMintPageHandler,mint} = useContext(stateContext);
+  useEffect(() => {
+    setMintPageHandler();
+  },[])
+
   return (
     <div className="MintPage min-w-[360px] 2xl:text-[40px] ">
     <div className="maincon md:flex md:justify-evenly md:my-auto md:mt-20 ">
@@ -26,7 +35,7 @@ const Mint = () => {
             </div>
           </div>
           <div className="btn  ">
-          <button className=" bg-gradient-to-r from-[#FD7900] to-[#FFE600] w-56 h-10 rounded text-2xl font-semibold hover:text-white">
+          <button className=" bg-gradient-to-r from-[#FD7900] to-[#FFE600] w-56 h-10 rounded text-2xl font-semibold hover:text-white" onClick={mint}>
             Mint Now
           </button>
         </div>
@@ -35,7 +44,7 @@ const Mint = () => {
       <div className="bg-[#242424] ">
         <div className="bg-[#242424] text-white marker:container w-full  mx-auto px-6 pt-10 pb-6 static md:bottom-0 md:fixed md:max-w-full text-center" >
           
-          Contract Address = `0xa2dD817c2fDc3a2996f1A5174CF8f1AaED466E82 `
+          Contract Address = `{address} `
 </div>
   </div>
     </div>

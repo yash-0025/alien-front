@@ -1,15 +1,17 @@
-import React, { useState } from "react"
+import React, { useState , useContext} from "react"
 import { Transition } from "@headlessui/react"
 import Link from "next/link"
 import { useRouter } from "next/router"
 // import Image from "next/image"
-
+import { stateContext } from "../components/Layout";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const router = useRouter()
+  const router = useRouter();
+  const {connectWallet, connected,mintPage} = useContext(stateContext);
   const buttonHandler = () => {
     router.push("/Mint")
   }
+
   return (
     <div className="text-white max-w-7xl ">
       <nav className="shadow-sm w-full  z-10 ">
@@ -62,13 +64,23 @@ function Navbar() {
                   >
                     Mint now
                   </Link> */}
+                  {
+                    !mintPage ? 
+                    <button
+                      onClick={buttonHandler}
+                      className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939]"
+                    >
+                      Mint Now
+                    </button>
+                    :
+                    <button
+                      onClick={connectWallet}
+                      className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939]"
+                    >
+                      {connected ? "connected":"Connect Wallet"}
+                    </button>
+                  }
 
-                  <button
-                    onClick={buttonHandler}
-                    className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939]"
-                  >
-                    Mint Now
-                  </button>
                 </div>
               </div>
             </div>
