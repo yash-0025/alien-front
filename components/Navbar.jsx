@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Transition } from "@headlessui/react"
-import { Link } from "react-scroll"
+import Link from "next/link"
 import { useRouter } from "next/router"
 // import Image from "next/image"
 
@@ -11,56 +11,45 @@ function Navbar() {
     router.push("/Mint")
   }
   return (
-    <div className="text-white ">
-      <nav className="shadow-sm w-full z-10 ">
+    <div className="text-white max-w-7xl ">
+      <nav className="shadow-sm w-full  z-10 ">
         <div className="w-full ">
-          <div className="flex items-center h-20 w-full md:bg-[#393939] bg-opacity-50 ">
+          <div className="flex items-center h-20 w-full md:bg-[#393939] bg-opacity-50  top-0 z-50 md:fixed ">
             <div className="flex items-center  mx-10  justify-between w-full md:bg-[#393939] bg-opacity-50">
               <div className="flex justify-center items-center flex-shrink-0 md:bg-[#393939] bg-opacity-50">
                 <Link href="/">
-                  <h1 className=" font-bold text-xl cursor-pointer md:bg-[#393939] bg-opacity-50">
+                  <a className="font-bold text-xl cursor-pointer md:bg-[#393939] bg-opacity-50">
                     Aliens On Earth
-                  </h1>
+                  </a>
                 </Link>
               </div>
               <div className="hidden md:block md:bg-[#393939] ">
                 <div className="ml-10 flex items-baseline space-x-4  md:bg-[#393939]">
-                  <Link
-                    href="team"
-                    smooth={true}
-                    offset={50}
-                    duration={500}
-                    className="cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]"
-                  >
-                    Team
+                  <Link href="#team" smooth={true} offset={50} duration={500}>
+                    <a className="cursor-pointer px-3 py-2 text-md scroll-smooth hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]">
+                      Team
+                    </a>
                   </Link>
-                  <Link
-                    href="/ourstory"
-                    smooth={true}
-                    offset={50}
-                    duration={500}
-                    className="cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]"
-                  >
-                    Our Story
+                  <Link href="#ourstory">
+                    <a className="cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]">
+                      Our Story
+                    </a>
                   </Link>
-                  <Link
-                    href="/faqs"
-                    smooth={true}
-                    offset={50}
-                    duration={500}
-                    className="cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]"
-                  >
-                    FAQs
+                  <Link href="#faqs" smooth={true} offset={50} duration={500}>
+                    <a className="cursor-pointer px-3 py-2 text-md hover:font-black scroll-smooth md:hover:text-[#FFB800] md:bg-[#393939]">
+                      FAQ's
+                    </a>
                   </Link>
 
                   <Link
-                    href="/roadmap"
+                    href="#roadmap"
                     smooth={true}
                     offset={50}
                     duration={500}
-                    className="cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]"
                   >
-                    Roadmap
+                    <a className="cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]">
+                      Roadmap
+                    </a>
                   </Link>
 
                   {/* <Link
@@ -76,7 +65,7 @@ function Navbar() {
 
                   <button
                     onClick={buttonHandler}
-                    className=" cursor-pointer px-3 py-2 text-md text-black bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 md:bg-[#393939]"
+                    className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939]"
                   >
                     Mint Now
                   </button>
@@ -140,47 +129,31 @@ function Navbar() {
           leaveTo="opacity-0 scale-95"
         >
           {(ref) => (
-            <div className="md:hidden mx-6" id="mobile-menu">
+            <div className="md:hidden mx-6 " id="mobile-menu">
               <div
                 ref={ref}
                 className=" px-2 pt-2 pb-3 space-y-1 sm:px-3 border rounded-2xl"
               >
-                <Link
-                  href="Team"
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                  className="cursor-pointer hover:bg-[#FFB800] hover:text-black block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Team
+                <Link href="#team">
+                  <a className="cursor-pointer hover:bg-[#FFB800] hover:text-black block px-3 py-2 rounded-md text-base font-medium">
+                    Team
+                  </a>
                 </Link>
-                <Link
-                  href="/ourstory"
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                  className="cursor-pointer hover:bg-[#FFB800]  hover:text-black block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Our Story
+                <Link href="#ourstory">
+                  <a className="cursor-pointer hover:bg-[#FFB800]  hover:text-black block px-3 py-2 rounded-md text-base font-medium">
+                    Our Story
+                  </a>
                 </Link>
 
-                <Link
-                  href="/faqs"
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                  className="cursor-pointer hover:bg-[#FFB800]  hover:text-black block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  FAQs
+                <Link href="#faqs">
+                  <a className="cursor-pointer hover:bg-[#FFB800]  hover:text-black block px-3 py-2 rounded-md text-base font-medium">
+                    FAQs
+                  </a>
                 </Link>
-                <Link
-                  href="/roadmap"
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                  className="cursor-pointer hover:bg-[#FFB800]  hover:text-black block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Roadmap
+                <Link href="#roadmap">
+                  <a className="cursor-pointer hover:bg-[#FFB800]  hover:text-black block px-3 py-2 rounded-md text-base font-medium">
+                    Roadmap
+                  </a>
                 </Link>
 
                 {/*  <Link
@@ -196,7 +169,7 @@ function Navbar() {
                 </Link> */}
                 <button
                   onClick={buttonHandler}
-                  className="cursor-pointer bg-gradient-to-r from-[#FD7900] to-[#FFE600] block px-3 py-2 rounded-md text-md  font-bold w-3/4 mx-auto hover:scale-110 hover:text-black"
+                  className="cursor-pointer bg-gradient-to-r from-[#FD7900] to-[#FFE600] block px-3 py-2 rounded-md text-md  font-bold w-3/4 mx-auto hover:scale-110  hover:text-black"
                 >
                   Mint Now
                 </button>
