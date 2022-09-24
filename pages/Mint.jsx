@@ -4,7 +4,7 @@ const Mint = () => {
   return (
     <div className="MintPage min-w-[360px] 2xl:text-[40px] ">
     <div className="maincon md:flex md:justify-evenly md:my-auto md:mt-20 ">
-      <div className="forImg p-2 flex justify-center mt-20 md:my-auto  md:mx-[10%] ">
+      <div className="forImg p-2 flex justify-center mt-12 md:my-auto  md:mx-[10%] ">
         <img
           src="A L I E N.gif"
           alt="revealing Image"

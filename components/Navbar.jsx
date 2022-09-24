@@ -43,9 +43,6 @@ function Navbar() {
 
                   <Link
                     href="#roadmap"
-                    smooth={true}
-                    offset={50}
-                    duration={500}
                   >
                     <a className="cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]">
                       Roadmap
@@ -67,7 +64,7 @@ function Navbar() {
                     onClick={buttonHandler}
                     className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939]"
                   >
-                    Mint Now
+                    Connect wallet
                   </button>
                 </div>
               </div>
@@ -171,7 +168,7 @@ function Navbar() {
                   onClick={buttonHandler}
                   className="cursor-pointer bg-gradient-to-r from-[#FD7900] to-[#FFE600] block px-3 py-2 rounded-md text-md  font-bold w-3/4 mx-auto hover:scale-110  hover:text-black"
                 >
-                  Mint Now
+                  Connect Wallet
                 </button>
               </div>
             </div>
