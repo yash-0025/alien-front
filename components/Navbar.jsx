@@ -26,17 +26,17 @@ function Navbar() {
               <div className="hidden md:block md:bg-[#393939] ">
                 <div className="ml-10 flex items-baseline space-x-4  md:bg-[#393939]">
                   <Link href="#team" smooth={true} offset={50} duration={500}>
-                    <a className="cursor-pointer px-3 py-2 text-md scroll-smooth hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]">
+                    <a className="transition duration-300 cursor-pointer px-3 py-2 text-md scroll-smooth hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]">
                       Team
                     </a>
                   </Link>
                   <Link href="#ourstory">
-                    <a className="cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]">
+                    <a className="transition duration-300 cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]">
                       Our Story
                     </a>
                   </Link>
                   <Link href="#faqs" smooth={true} offset={50} duration={500}>
-                    <a className="cursor-pointer px-3 py-2 text-md hover:font-black scroll-smooth md:hover:text-[#FFB800] md:bg-[#393939]">
+                    <a className="transition duration-300 cursor-pointer px-3 py-2 text-md hover:font-black scroll-smooth md:hover:text-[#FFB800] md:bg-[#393939]">
                       FAQ's
                     </a>
                   </Link>
@@ -44,7 +44,7 @@ function Navbar() {
                   <Link
                     href="#roadmap"
                   >
-                    <a className="cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]">
+                    <a className="transition duration-300 cursor-pointer px-3 py-2 text-md hover:font-black md:hover:text-[#FFB800] md:bg-[#393939]">
                       Roadmap
                     </a>
                   </Link>
@@ -62,7 +62,7 @@ function Navbar() {
 
                   <button
                     onClick={buttonHandler}
-                    className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939]"
+                    className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939] transition duration-300"
                   >
                     Connect wallet
                   </button>
@@ -166,7 +166,7 @@ function Navbar() {
                 </Link> */}
                 <button
                   onClick={buttonHandler}
-                  className="cursor-pointer bg-gradient-to-r from-[#FD7900] to-[#FFE600] block px-3 py-2 rounded-md text-md  font-bold w-3/4 mx-auto hover:scale-110  hover:text-black"
+                  className="cursor-pointer bg-gradient-to-r from-[#FD7900] to-[#FFE600] block px-3 py-2 rounded-md text-md  font-bold w-3/4 mx-auto hover:scale-110  hover:text-black transition duration-300"
                 >
                   Connect Wallet
                 </button>

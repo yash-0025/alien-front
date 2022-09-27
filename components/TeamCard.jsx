@@ -3,7 +3,7 @@ import React from 'react'
 const TeamCard = (props) => {
     return (
 
-        <div className='team-card w-[230px] mx-auto border-[4px] rounded-xl mt-10 p-1'>
+        <div className='team-card w-[230px] mx-auto border-[4px] rounded-xl mt-10 p-1 hover:scale-110 transition duration-300'>
             <div className="img p-1 ">
               <img src={props.img} alt="" className='rounded-full border border-8 border-[#00FFD1] '/>
             </div>
