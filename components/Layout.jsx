@@ -4,12 +4,29 @@ import {createContext,useState} from 'react';
 export const stateContext = createContext();
 import {abi,address} from "../constansts/index"
 import { ethers } from 'ethers';
+import Web3Modal from "web3modal";
+import WalletConnectProvider from "@walletconnect/web3-provider";
+
 const Layout = ({children}) => {
 
     const [connected, setConnected] = useState(false);
     const [provider,setProvider] = useState(null);
     const [contract,setContract] = useState(null);
     const [mintPage,setMintPage] = useState(false);
+    const providerOptions = {
+        walletconnect: {
+            package: WalletConnectProvider, // required
+            theme: "dark",
+            options: {
+                rpc : {
+                    80001 : "https://rpc-mumbai.maticvigil.com/"
+                },
+                infuraId: "6c4742187dec43689ccae31a3039363d" // required
+            }
+          }
+    };
+      
+    
 
     const setMintPageHandler = () => {
         setMintPage(true);
@@ -30,19 +47,27 @@ const Layout = ({children}) => {
 
     const connectWallet = async () => {
         try{
-            const provider = new ethers.providers.Web3Provider(window.ethereum,"any");           
-            await provider.send("eth_requestAccounts", []);
-            const signer = provider.getSigner();
-            if(await signer.getChainId() != 80001){
-                await window.ethereum.request({
-                    method: "wallet_addEthereumChain",
-                    params: [
-                        {
-                            ...networks["mumbai"]
-                        }
-                    ]
-                })
-            }
+            // const provider = new WalletConnectProvider({
+            //     rpc : {
+            //         80001 : "https://rpc-mumbai.maticvigil.com/"
+            //     },
+            //     infuraId: "6c4742187dec43689ccae31a3039363d",
+            //   });
+
+            // await provider.enable();
+            // const web3Provider = new ethers.providers.Web3Provider(provider);
+
+
+
+            const web3Modal = new Web3Modal({
+                theme: "dark",
+                network: "mumbai", // optional
+                cacheProvider: false, // optional
+                providerOptions // required
+            });
+            const instance = await web3Modal.connect();
+            const provider = new ethers.providers.Web3Provider(instance,"any");           
+            const signer =provider.getSigner();
             setProvider(signer);
             const contract = new ethers.Contract(address,abi,signer);
             setConnected(true);

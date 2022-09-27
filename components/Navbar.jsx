@@ -13,8 +13,8 @@ function Navbar() {
   }
 
   return (
-    <div className="text-white max-w-7xl ">
-      <nav className="shadow-sm w-full  z-10 ">
+    <div className="text-white max-w-7xl bg-black">
+      <nav className="shadow-sm w-full  z-10 bg-black">
         <div className="w-full ">
           <div className="flex items-center h-20 w-full md:bg-[#393939] bg-opacity-50  top-0 z-50 md:fixed ">
             <div className="flex items-center  mx-10  justify-between w-full md:bg-[#393939] bg-opacity-50">
@@ -73,12 +73,24 @@ function Navbar() {
                       Mint Now
                     </button>
                     :
-                    <button
+                    <div>
+                      {
+                      connected == true? 
+                      <button
+                      className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939]"
+                      >
+                       connected
+                      </button>
+                      :
+                      <button
                       onClick={connectWallet}
                       className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939]"
-                    >
-                      {connected ? "connected":"Connect Wallet"}
-                    </button>
+                      >
+                        Connect Wallet
+                      </button>
+
+                      }
+                      </div>
                   }
 
                 </div>
@@ -179,12 +191,40 @@ function Navbar() {
                 >
                   Mint now
                 </Link> */}
-                <button
-                  onClick={buttonHandler}
-                  className="cursor-pointer bg-gradient-to-r from-[#FD7900] to-[#FFE600] block px-3 py-2 rounded-md text-md  font-bold w-3/4 mx-auto hover:scale-110  hover:text-black"
-                >
-                  Mint Now
-                </button>
+                {
+                    !mintPage ? 
+                    <button
+                      onClick={buttonHandler}
+                      className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939]"
+                    >
+                      Mint Now
+                    </button>
+                    :
+                    <div>
+                      {
+                      connected == true? 
+                      <button
+                      className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939]"
+                      >
+                       connected
+                      </button>
+                      :
+                      <button
+                      onClick={connectWallet}
+                      className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939]"
+                      >
+                        Connect Wallet
+                      </button>
+
+                      }
+                      </div>
+                    // <button
+                    //   onClick={connectWallet}
+                    //   className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939]"
+                    // >
+                    //   {connected ? "connected":"Connect Wallet"}
+                    // </button>
+                  }
               </div>
             </div>
           )}

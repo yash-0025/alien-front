@@ -11,9 +11,9 @@ const Mint = () => {
   },[])
 
   return (
-    <div className="MintPage min-w-[360px] 2xl:text-[40px] ">
-    <div className="maincon md:flex md:justify-evenly md:my-auto md:mt-20 ">
-      <div className="forImg p-2 flex justify-center mt-20 md:my-auto  md:mx-[10%] ">
+    <div className="MintPage min-w-[360px] 2xl:text-[40px] bg-black">
+    <div className="maincon md:flex md:justify-evenly md:my-auto md:mt-20 bg-black">
+      <div className="forImg p-2 flex justify-center mt-20 md:py-auto  md:px-[10%] bg-black">
         <img
           src="A L I E N.gif"
           alt="revealing Image"
@@ -35,9 +35,16 @@ const Mint = () => {
             </div>
           </div>
           <div className="btn  ">
-          <button className=" bg-gradient-to-r from-[#FD7900] to-[#FFE600] w-56 h-10 rounded text-2xl font-semibold hover:text-white" onClick={mint}>
-            Mint Now
-          </button>
+            {
+              connected ? 
+              <button className=" bg-gradient-to-r from-[#FD7900] to-[#FFE600] w-56 h-10 rounded text-2xl font-semibold hover:text-white" onClick={mint}>
+                Mint Now
+              </button>
+              :
+              <button className=" bg-gradient-to-r from-[#FD7900] to-[#FFE600] w-56 h-10 rounded text-2xl font-semibold hover:text-white" onClick={connectWallet}>
+                Connect Wallet
+              </button>
+            }
         </div>
         </div>
       </div>
