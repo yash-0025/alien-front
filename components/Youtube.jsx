@@ -7,7 +7,6 @@ const Youtube = () => {
         <iframe
           className="w-full h-[430px] md:h-[550px]"
           src="https://www.youtube.com/embed/gnulCeCkxoM"
-   
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture"
         ></iframe>

@@ -1,7 +1,10 @@
 import React from "react"
+import MintNowNav from "../components/MintNowNav"
 
 const Mint = () => {
   return (
+    <>
+      <MintNowNav  />
     <div className="MintPage min-w-[360px] 2xl:text-[40px] ">
     <div className="maincon md:flex md:justify-evenly md:my-auto md:mt-20 ">
       <div className="forImg p-2 flex justify-center mt-12 md:my-auto  md:mx-[10%] ">
@@ -38,7 +41,8 @@ const Mint = () => {
           Contract Address = `0xa2dD817c2fDc3a2996f1A5174CF8f1AaED466E82 `
 </div>
   </div>
-    </div>
+      </div>
+      </>
   )
 }
 

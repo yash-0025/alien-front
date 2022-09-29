@@ -8,18 +8,18 @@ const Faq = ({ title, children, Id, Index, setIndex }) => {
     <>
       <div
         onClick={() => handleSetIndex(Id)}
-        className="flex group cursor-pointer w-3/4 mx-auto h-16 justify-between  items-center p-2 mt-2 rounded-md bg-white hover:bg-pink-500 hover:shadow-lg focus:bg-pink-500 "
+        className="flex group cursor-pointer w-3/4 mx-auto md:h-16 justify-between  items-center  mt-7 md:mt-14 rounded-md md:rounded-2xl border-2 md:border-4 hover:border-yellow-500 hover:shadow-lg  "
       >
         <div className="flex group cursor-pointer">
-          <div className="text-pink-600 font-semibold pl-10 group-hover:text-white">
+          <div className="text-white font-semibold p-1 group-hover:text-yellow-500">
             {title}
           </div>
         </div>
         <div className="flex items-center justify-center pr-10">
           {Index !== Id ? (
-            <HiArrowCircleDown className="w-6 h-6 group-hover:text-white text-pink-600" />
+            <HiArrowCircleDown className="w-6 h-6 group-hover:text-yellow-500 text-white" />
           ) : (
-            <HiX className="w-6 h-6 group-hover:text-white text-pink-600" />
+             <HiX className="w-6 h-6 group-hover:text-yellow-500 text-white" /> 
           )}
         </div>
       </div>
