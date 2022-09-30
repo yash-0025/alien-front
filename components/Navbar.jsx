@@ -64,7 +64,7 @@ function Navbar() {
                     onClick={buttonHandler}
                     className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939] transition duration-300"
                   >
-                    Connect wallet
+                    Mint Now
                   </button>
                 </div>
               </div>
@@ -168,7 +168,7 @@ function Navbar() {
                   onClick={buttonHandler}
                   className="cursor-pointer bg-gradient-to-r from-[#FD7900] to-[#FFE600] block px-3 py-2 rounded-md text-md  font-bold w-3/4 mx-auto hover:scale-110  hover:text-black transition duration-300"
                 >
-                  Connect Wallet
+                  Mint Now
                 </button>
               </div>
             </div>

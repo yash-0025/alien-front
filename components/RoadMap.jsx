@@ -1,4 +1,4 @@
-import RoadmapCard from "./roadmapCard"
+import RoadmapCard from "./RoadmapCard"
 
 const Roadmap = () => {
   return (

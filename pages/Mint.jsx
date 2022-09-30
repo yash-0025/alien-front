@@ -1,7 +1,12 @@
 import React from "react"
 import MintNowNav from "../components/MintNowNav"
-
+import {address} from "../constansts/index"
+import { ethers } from "ethers";
+import {useContext,useEffect} from "react"
+import { stateContext } from "../components/Layout";
 const Mint = () => {
+  const {connectWallet, connected,mint} = useContext(stateContext);
+
   return (
     <>
       <MintNowNav  />
@@ -29,16 +34,23 @@ const Mint = () => {
             </div>
           </div>
           <div className="btn  ">
-          <button className=" bg-gradient-to-r from-[#FD7900] to-[#FFE600] w-56 h-10 rounded text-2xl font-semibold hover:text-white">
-            Mint Now
-          </button>
+          {
+              connected ? 
+              <button className=" bg-gradient-to-r from-[#FD7900] to-[#FFE600] w-56 h-10 rounded text-2xl font-semibold hover:text-white" onClick={mint}>
+                Mint Now
+              </button>
+              :
+              <button className=" bg-gradient-to-r from-[#FD7900] to-[#FFE600] w-56 h-10 rounded text-2xl font-semibold hover:text-white" onClick={connectWallet}>
+                Connect Wallet
+              </button>
+            }
         </div>
         </div>
       </div>
       <div className="bg-[#242424] ">
         <div className="bg-[#242424] text-white marker:container w-full  mx-auto px-6 pt-10 pb-6 static md:bottom-0 md:fixed md:max-w-full text-center" >
           
-          Contract Address = `0xa2dD817c2fDc3a2996f1A5174CF8f1AaED466E82 `
+          Contract Address = `{address} `
 </div>
   </div>
       </div>

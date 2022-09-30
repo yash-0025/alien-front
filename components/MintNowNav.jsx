@@ -1,12 +1,15 @@
-import React, { useState } from "react"
+import React, { useState ,useContext } from "react"
 import { Transition } from "@headlessui/react"
 import Link from "next/link"
 import { useRouter } from "next/router"
 // import Image from "next/image"
+import { stateContext } from "../components/Layout";
 
 function MintNowNav() {
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
+  const {connectWallet, connected,mintPage} = useContext(stateContext);
+
   const buttonHandler = () => {
     router.push("/Mint")
   }
@@ -25,12 +28,22 @@ function MintNowNav() {
               </div>
               <div className="hidden md:block md:bg-[#393939] ">
                 <div className="ml-10 flex items-baseline space-x-4  md:bg-[#393939]">
-                  <button
-                    onClick={buttonHandler}
+                  {
+                    connected ? 
+                    <button
                     className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939] transition duration-300"
-                  >
-                    Connect wallet
-                  </button>
+                    >
+                      Connected
+                    </button>
+                  :
+                    <button
+                      onClick={connectWallet}
+                      className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939] transition duration-300"
+                    >
+                      Connect wallet
+                    </button>
+                  }
+                  
                 </div>
               </div>
             </div>
@@ -96,12 +109,21 @@ function MintNowNav() {
                 ref={ref}
                 className=" px-2 pt-2 pb-3 space-y-1 sm:px-3 border rounded-2xl"
               >
-                <button
-                  onClick={buttonHandler}
-                  className="cursor-pointer bg-gradient-to-r from-[#FD7900] to-[#FFE600] block px-3 py-2 rounded-md text-md  font-bold w-3/4 mx-auto hover:scale-110  hover:text-black transition duration-300"
-                >
-                  Connect Wallet
-                </button>
+                {
+                    connected ? 
+                    <button
+                    className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939] transition duration-300"
+                    >
+                      Connected
+                    </button>
+                  :
+                    <button
+                      onClick={connectWallet}
+                      className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939] transition duration-300"
+                    >
+                      Connect wallet
+                    </button>
+                  }
               </div>
             </div>
           )}
