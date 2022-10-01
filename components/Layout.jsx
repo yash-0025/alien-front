@@ -12,32 +12,49 @@ const Layout = ({children}) => {
     const [connected, setConnected] = useState(false);
     const [provider,setProvider] = useState(null);
     const [contract,setContract] = useState(null);
+    const [id,setId] = useState(1);
     const providerOptions = {
         walletconnect: {
             package: WalletConnectProvider, // required
             options: {
                 rpc : {
-                    80001 : "https://rpc-mumbai.maticvigil.com/"
+                    4 : "https://rinkeby.infura.io/v3/6c4742187dec43689ccae31a3039363d"
                 },
-                infuraId: "6c4742187dec43689ccae31a3039363d" // required
+                infuraId: "6c4742187dec43689ccae31a3039363d", // required
+                qrcodeModalOptions: {
+                    desktopLinks: [
+                      'ledger',
+                      'tokenary',
+                      'wallet',
+                      'wallet 3',
+                      'secuX',
+                      'ambire',
+                      'wallet3',
+                      'apolloX',
+                      'zerion',
+                      'sequence',
+                      'punkWallet',
+                      'kryptoGO',
+                      'nft',
+                      'riceWallet',
+                      'vision',
+                      'keyring'
+                    ],
+                    mobileLinks: [
+                      "rainbow",
+                      "metamask",
+                      "argent",
+                      "trust",
+                      "imtoken",
+                      "pillar",
+                    ],
+                  },
             }
           }
     };
       
     
-    const networks = {
-        mumbai: {
-          chainId: `0x${Number(80001).toString(16)}`,
-          chainName: "Mumbai Testnet",
-          nativeCurrency: {
-            name: "MATIC",
-            symbol: "MATIC",
-            decimals: 18
-          },
-          rpcUrls: ["https://rpc-mumbai.maticvigil.com/"],
-          blockExplorerUrls: ["https://mumbai.polygonscan.com/"]
-        }
-    }
+    
 
     const connectWallet = async () => {
         try{
@@ -54,13 +71,24 @@ const Layout = ({children}) => {
 
             const web3Modal = new Web3Modal({
                 theme: "dark",
-                network: "mumbai", // optional
+                network: "rinkeby", // optional
                 cacheProvider: false, // optional
                 providerOptions // required
             });
             const instance = await web3Modal.connect();
-            const provider = new ethers.providers.Web3Provider(instance);
+            const provider = new ethers.providers.Web3Provider(instance,"any");
             const signer =provider.getSigner();
+            console.log(await signer.getChainId());
+            if(await signer.getChainId() != 4){
+              await  window.ethereum.request({
+                  method: "wallet_switchEthereumChain",
+                  params: [
+                      {
+                          chainId : `0x${Number(4).toString(16)}`
+                      }
+                  ]
+              })
+            }
             setProvider(signer);
             const contract = new ethers.Contract(address,abi,signer);
             setConnected(true);
@@ -81,11 +109,23 @@ const Layout = ({children}) => {
         }
       }
 
+    const getId = async () => {
+        try{
+            const id = await contract.tokenIds();
+            setId(id+1);
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+
     return (
         <stateContext.Provider value={{
             connected,
             mint,
             connectWallet,
+            getId,
+            id
         }}>
             {children}
         </stateContext.Provider>

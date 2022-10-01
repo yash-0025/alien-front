@@ -13,7 +13,7 @@ import Youtube from "./Youtube"
 
 const HomePage = () => {
   return (
-    <>
+    <div className="bg-black">
       <Navbar />
       <Youtube />
       <Story />
@@ -23,7 +23,7 @@ const HomePage = () => {
       <Team />
       <ConnectSocial />
       <Footer />
-    </>
+    </div>
   )
 }
 
