@@ -4,9 +4,15 @@ import {address} from "../constansts/index"
 import { ethers } from "ethers";
 import {useContext,useEffect} from "react"
 import { stateContext } from "../components/Layout";
+import { getDisplayName } from "next/dist/shared/lib/utils";
 const Mint = () => {
-  const {connectWallet, connected,mint} = useContext(stateContext);
+  const {connectWallet, connected,mint,getId,id} = useContext(stateContext);
 
+  useEffect(() => {
+    if (connected) {
+      getId();
+    }
+  }, [connected]);
   return (
     <div className="bg-[#111111] ">
       <MintNowNav  />
@@ -24,7 +30,7 @@ const Mint = () => {
           <div className="nftContent text-white text-center">
             <div className="info flex justify-center md:justify-start">
               <p className="my-3">NFT ID :- </p>
-              <p className="my-3 ml-5"> 1 </p>
+              <p className="my-3 ml-5"> {id}</p>
             </div>
           </div>
           <div className="nftContent text-white">
