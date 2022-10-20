@@ -11,9 +11,9 @@ function Navbar() {
     router.push("/Mint")
   }
   return (
-    <div className="text-white max-w-7xl ">
-      <nav className="shadow-sm w-full  z-10 ">
-        <div className="w-full ">
+    <div className="text-white max-w-7xl bg-[#111111] ">
+      <nav className="shadow-sm w-full  z-10 bg-[#111111]">
+        <div className="w-full bg-[#111111] ">
           <div className="flex items-center h-20 w-full md:bg-[#393939] bg-opacity-50  top-0 z-50 md:fixed ">
             <div className="flex items-center  mx-10  justify-between w-full md:bg-[#393939] bg-opacity-50">
               <div className="flex justify-center items-center flex-shrink-0 md:bg-[#393939] bg-opacity-50">

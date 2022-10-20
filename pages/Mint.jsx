@@ -8,10 +8,10 @@ const Mint = () => {
   const {connectWallet, connected,mint} = useContext(stateContext);
 
   return (
-    <>
+    <div className="bg-[#111111] ">
       <MintNowNav  />
-    <div className="MintPage min-w-[360px] 2xl:text-[40px] ">
-    <div className="maincon md:flex md:justify-evenly md:my-auto md:mt-20 ">
+    <div className="MintPage min-w-[360px] 2xl:text-[40px] bg-[#111111]">
+    <div className="maincon md:flex md:justify-evenly md:my-auto md:mt-20  ">
       <div className="forImg p-2 flex justify-center mt-12 md:my-auto  md:mx-[10%] ">
         <img
           src="A L I E N.gif"
@@ -36,7 +36,7 @@ const Mint = () => {
           <div className="btn  ">
           {
               connected ? 
-              <button className=" bg-gradient-to-r from-[#FD7900] to-[#FFE600] w-56 h-10 rounded text-2xl font-semibold hover:text-white" onClick={mint}>
+              <button className=" bg-gradient-to-r from-[#FD7900] to-[#FFE600] w-56 h-10 rounded text-2xl font-semibold hover:text-white " onClick={mint}>
                 Mint Now
               </button>
               :
@@ -54,7 +54,7 @@ const Mint = () => {
 </div>
   </div>
       </div>
-      </>
+      </div>
   )
 }
 

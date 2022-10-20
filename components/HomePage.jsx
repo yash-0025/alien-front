@@ -14,6 +14,7 @@ import Youtube from "./Youtube"
 const HomePage = () => {
   return (
     <>
+      <div className="bg-[#111111]">
       <Navbar />
       <Youtube />
       <Story />
@@ -23,6 +24,7 @@ const HomePage = () => {
       <Team />
       <ConnectSocial />
       <Footer />
+      </div>
     </>
   )
 }

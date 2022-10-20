@@ -41,16 +41,7 @@ const Layout = ({children}) => {
 
     const connectWallet = async () => {
         try{
-            // const provider = new WalletConnectProvider({
-            //     rpc : {
-            //         80001 : "https://rpc-mumbai.maticvigil.com/"
-            //     },
-            //     infuraId: "6c4742187dec43689ccae31a3039363d",
-            //   });
-
-            // await provider.enable();
-            // const web3Provider = new ethers.providers.Web3Provider(provider);
-
+             
 
             const web3Modal = new Web3Modal({
                 theme: "dark",

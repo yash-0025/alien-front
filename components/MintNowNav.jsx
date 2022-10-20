@@ -14,9 +14,9 @@ function MintNowNav() {
     router.push("/Mint")
   }
   return (
-    <div className="text-white max-w-7xl ">
-      <nav className="shadow-sm w-full  z-10 ">
-        <div className="w-full ">
+    <div className="text-white max-w-7xl bg-[#111111] ">
+      <nav className="shadow-sm w-full  z-10 bg-[#111111] ">
+        <div className="w-full bg-[#111111]  ">
           <div className="flex items-center h-20 w-full md:bg-[#393939] bg-opacity-50  top-0 z-50 md:fixed ">
             <div className="flex items-center  mx-10  justify-between w-full md:bg-[#393939] bg-opacity-50">
               <div className="flex justify-center items-center flex-shrink-0 md:bg-[#393939] bg-opacity-50">
@@ -107,19 +107,19 @@ function MintNowNav() {
             <div className="md:hidden mx-6 " id="mobile-menu">
               <div
                 ref={ref}
-                className=" px-2 pt-2 pb-3 space-y-1 sm:px-3 border rounded-2xl"
+                className=" px-2 pt-2 pb-3 space-y-1 sm:px-3 border rounded-2xl text-center "
               >
                 {
                     connected ? 
                     <button
-                    className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939] transition duration-300"
+                    className="w-3/4 cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939] transition duration-300"
                     >
                       Connected
                     </button>
                   :
                     <button
                       onClick={connectWallet}
-                      className=" cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939] transition duration-300"
+                      className="w-3/4 cursor-pointer px-3 py-2 text-md text-white bg-gradient-to-r from-[#FD7900] to-[#FFE600] rounded font-bold hover:scale-110 hover:text-black md:bg-[#393939] transition duration-300"
                     >
                       Connect wallet
                     </button>
