@@ -1,12 +1,20 @@
-import RoadmapCard from "./RoadmapCard"
+// import RoadmapCard from "./RoadmapCard"
+
+import RoadmapCard from "./roadmapCard"
+
+
 
 const Roadmap = () => {
   return (
-    <div id="roadmap" className="mt-16 md:space-y-3">
+    <div id="roadmap" className="mt-16 ">
       <h1 className="text-white text-center text-4xl md:text-6xl underline mb-10">
         RoadMap
       </h1>
-      <div className="flex justify-start">
+
+      <RoadmapCard />
+     
+
+      {/* <div className="flex justify-start">
         <RoadmapCard content="Creating NFT Collection" />
       </div>
       <div className="flex justify-end">
@@ -26,7 +34,7 @@ const Roadmap = () => {
       </div>
       <div className="flex justify-start">
         <RoadmapCard content="Stepping up into Gaming World." />
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -13,9 +13,9 @@ const Collection = () => {
         Collection
       </h1>
       <div className="flex flex-wrap justify-center md:mt-24 mt-8 md:justify-evenly">
-        <CollectionCard img="8001.png" />
-        <CollectionCard img="8008.png"/>
-        <CollectionCard img="8025.png"/>
+        <CollectionCard img="/8001.png" />
+        <CollectionCard img="/8008.png"/>
+        <CollectionCard img="/8025.png"/>
       </div>
       <div className="space-y-5 mt-5 flex flex-col items-center ">
         <p className="text-white text-3xl text-center mt-5">
